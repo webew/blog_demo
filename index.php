@@ -8,8 +8,11 @@
 </head>
 <body>
     <?php
+        //connexion à la base de données
         $pdo = new PDO("mysql:host=localhost;dbname=blog1;charset=utf8;port=3306", "root", "");
+        //envoi de la requête SQL
         $req = $pdo->query("SELECT * FROM article JOIN categorie c ON article.id_categorie = c.id_categorie");
+        //récupération des données sous forme de tableau d'objets
         $articles = $req->fetchAll(PDO::FETCH_OBJ);
         var_dump($articles);
 
