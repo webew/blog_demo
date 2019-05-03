@@ -8,6 +8,11 @@
 </head>
 <body>
     <?php
+        $pdo = new PDO("mysql:host=localhost;dbname=blog1;charset=utf8;port=3306", "root", "");
+        $req = $pdo->query("SELECT * FROM article");
+        $articles = $req->fetchAll(PDO::FETCH_OBJ);
+        var_dump($articles);
+
         for($i = 1; $i<=5; $i++) {
     ?>
         <div>
